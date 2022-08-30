@@ -5,17 +5,13 @@ void BuildTree (int num)
 {
     for(int i=1; i<=num; i++)
     {
-        for (int j=1; j<=num+i; j++)
+        for (int j=num-i; j>0; j--)
         {
-            if (j <=num-i)
-            {
-                Console.Write(" ");
-            }
-            else if(j<=num+i-1)
-            {
-                Console.Write("*");
-            }
-            
+            Console.Write(" ");
+        }
+        for (int j=1; j<i+i; j++)
+        {
+            Console.Write("*");
         }
         Console.WriteLine();
     }
@@ -36,4 +32,3 @@ for (int i=0; i<number; i++)
 Console.WriteLine("["+String.Join(", ", arrTime)+"]");
 
 Console.WriteLine($"Средняя скорости выполнения алгоритма: {arrTime.Average()}");
-
