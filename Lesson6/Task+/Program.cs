@@ -1,4 +1,6 @@
-﻿int[,] InitArray(int row, int col)
+﻿// Программу реализует обход введенного двумерного массива, начиная с крайнего нижнего левого элемента против часовой стрелки.
+
+int[,] InitArray(int row, int col)
 {
     int[,] arr = new int[row, col];
     int k = 1;
