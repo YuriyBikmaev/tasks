@@ -1,33 +1,45 @@
 ﻿// Программа перевода римских чисел в арабские
-Console.WriteLine("Введите римское число:");
-string number = Console.ReadLine();
-int size = number.GetLength() - 1;
 
-int CheckChar(char num)
+int ConvertCharToInt(char num)
 {
     switch (num)
     {
-        case "I":
+        case 'I':
             return 1;
-        case "V":
+        case 'V':
             return 5;
-        case "X":
+        case 'X':
             return 10;
-        case "L":
+        case 'L':
             return 50;
-        case "C":
+        case 'C':
             return 100;
-        case "M":
+        case 'D':
+            return 500;
+        case 'M':
             return 1000;
         default:
             return 0;
     }
 }
 
-int ConvertNumber(string num)
+void ConvertRomanNumeral(string numRoman)
 {
-    for (int i = size; i >= 0; i--) 
+    int result = 0;
+    for (int i = 0; i < numRoman.Length; i++)
     {
-        
+        if (i + 1 < numRoman.Length &&  ConvertCharToInt(numRoman[i]) < ConvertCharToInt(numRoman[i + 1]))
+        {
+            result -= ConvertCharToInt(numRoman[i]);
+        }
+        else
+        {
+            result += ConvertCharToInt(numRoman[i]);
+        }
     }
+    Console.WriteLine(numRoman + $" -> {result}");
 }
+
+Console.WriteLine("Введите римское число:");
+string numberRom = Console.ReadLine();
+ConvertRomanNumeral(numberRom);
