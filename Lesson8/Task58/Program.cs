@@ -3,9 +3,9 @@
 int[,] InitArray(int row, int col, int minValue, int maxValue)
 {
     int[,] arr = new int[row, col];
-    for (int i = 0; i < arr.GetLength(0); i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 0; j < arr.GetLength(1); j++)
+        for (int j = 0; j < col; j++)
         {
             arr[i, j] = new Random().Next(minValue, maxValue + 1);
         }
