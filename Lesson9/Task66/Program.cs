@@ -1,11 +1,8 @@
 ﻿// Программа находит сумму натуральных элементов в промежутке от M до N
 int SumNumberBetweenMAndN(int current, int number, int result = 0)
 {
-    if (current < number+1)
-    {   
-        result += current+number + SumNumberBetweenMAndN(++current, --number);
-    }
-    return result;
+    if (current > number) return result;
+    return  result + current + SumNumberBetweenMAndN(++current, number);
 }
 
 Console.Write("Введите число M: ");
